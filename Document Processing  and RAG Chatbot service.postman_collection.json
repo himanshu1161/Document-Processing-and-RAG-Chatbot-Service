@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "46c68f9c-21c5-40e1-bd59-a6fe84a3778b",
+		"name": "Document Processing  and RAG Chatbot service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37634849"
+	},
+	"item": [
+		{
+			"name": "Process document api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "document",
+							"type": "file",
+							"src": "postman-cloud:///1ef58c9c-984d-4050-87ec-13f9f98b7d8c"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/documents/process",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"documents",
+						"process"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start chat session api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"assetId\": \"assetId_value\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/chat/start",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"chat",
+						"start"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send chat message api",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"chatId\": \"chatId_value\",\r\n  \"message\": \"Hello, I have a question.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/api/chat/message",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"chat",
+						"message"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get chat history api",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/api/chat/history?chatId=chatId_value",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"api",
+						"chat",
+						"history"
+					],
+					"query": [
+						{
+							"key": "chatId",
+							"value": "chatId_value"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
